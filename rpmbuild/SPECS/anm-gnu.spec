@@ -18,7 +18,7 @@
 
 %define debug_package %{nil}
 %define _install_path /opt/tools/compilers/gnu/%{_version}-%{_compiler_desc}
-%define _module_path /etc/modulefiles/compilers/gcc-%{_version}-%{_compiler_desc}
+%define _module_path /etc/modulefiles/compilers/gcc-%{_version}
 
 Name:           anm-gcc
 Version:        %{_version}
