@@ -20,9 +20,9 @@
 %define _install_path /opt/tools/compilers/gnu/%{_version}-%{_compiler_desc}
 %define _module_path /etc/modulefiles/compilers/gcc-%{_version}-%{_compiler_desc}
 
-Name:           anm-gcc-%_compiler_desc
-Version:        1
-Release:        1%{?dist}
+Name:           anm-gcc
+Version:        %{_version}
+Release:        %{_compiler_version}%{?dist}
 Summary:        anm-gcc
 BuildRequires:  gmp-devel >= 4.2
 BuildRequires:  mpfr-devel
