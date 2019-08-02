@@ -35,7 +35,7 @@ Requires:       glibc-devel
 
 Group:          Miscellanous
 License:        GPL
-Source0:        https://ftp.gnu.org/gnu/gcc/gcc-%{_version}/gcc-%{_version}.tar.bz2
+Source0:        https://ftp.gnu.org/gnu/gcc/gcc-%{_version}/gcc-%{_version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 
