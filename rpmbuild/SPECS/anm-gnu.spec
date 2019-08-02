@@ -22,7 +22,7 @@
 
 Name:           anm-gcc
 Version:        %{_version}
-Release:        %{_compiler_version}.1.%{?dist}
+Release:        %{_compiler_version}.1%{?dist}
 Summary:        anm-gcc
 BuildRequires:  gmp-devel >= 4.2
 BuildRequires:  mpfr-devel

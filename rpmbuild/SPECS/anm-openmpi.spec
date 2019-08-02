@@ -25,8 +25,8 @@
 %define _module_path /etc/modulefiles/libraries/openmpi-%{_version}-%{_compiler_desc}
 
 Name:           anm-openmpi
+Release:        %{_compiler_version}.1%{?dist}
 Version:        %{_version}
-Release:        %{_compiler_version}.1.%{?dist}
 Summary:        anm-openmpi
 BuildRequires:  libxml2-devel
 BuildRequires:  autoconf
