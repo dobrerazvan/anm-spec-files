@@ -21,7 +21,7 @@
     %define _ldflags "-lirc"
 %endif
 
-%define _install_path %{_install_path}
+%define _install_path /opt/tools/libraries/openmpi/%{_version}-%{_compiler_desc}
 %define _module_path /etc/modulefiles/libraries/openmpi-%{_version}-%{_compiler_desc}
 
 Name:           anm-openmpi
