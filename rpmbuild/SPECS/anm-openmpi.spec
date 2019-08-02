@@ -26,7 +26,7 @@
 
 Name:           anm-openmpi
 Version:        %{_version}
-Release:        %{_compiler_version}%{?dist}
+Release:        %{_compiler_version}.1.%{?dist}
 Summary:        anm-openmpi
 BuildRequires:  libxml2-devel
 BuildRequires:  autoconf
