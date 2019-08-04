@@ -1,5 +1,5 @@
 %define _name cmake
-%define _version 3.15.0
+%define _version 3.15.1
 %define _compiler gnu
 %define _compiler_version 6.5.0
 
