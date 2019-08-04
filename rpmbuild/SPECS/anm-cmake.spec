@@ -1,37 +1,18 @@
-%define _name eccodes
-%define _version 2.13.0
+%define _name cmake
+%define _version 3.15.0
 %define _compiler gnu
 %define _compiler_version 6.5.0
 
-%if "%{_compiler}" == "gnu"
-    %define _compiler_desc gcc-%{_compiler_version}
-    %define _cc "gcc" 
-    %define _cxx "c++"
-    %define _f77 "gfortran"
-    %define _fc "gfortran"
-    %define _ldflags ""
-%endif
-
-%if "%{_compiler}" == "intel"
-    %define _compiler_desc intel-2015
-    %define _cc icc
-    %define _cxx icpc
-    %define _f77 ifort
-    %define _fc ifort
-    %define _ldflags "-lirc"
-%endif
-
-%define _install_path /opt/tools/libraries/%{_name}/%{_version}-%{_compiler_desc}
-%define _module_path /etc/modulefiles/libraries/%{_name}-%{_version}-%{_compiler_desc}
+%define _install_path /opt/tools/utilities/%{_name}/%{_version}
+%define _module_path /etc/modulefiles/utilities/%{_name}-%{_version}
 
 Name:           anm-%{_name}
-Release:        %{_compiler_version}.1%{?dist}
+Release:        1%{?dist}
 Version:        %{_version}
 Summary:        anm-%{_name}
 BuildRequires:  openjpeg-devel
 BuildRequires:  python-devel
 BuildRequires:  numpy
-BuildRequires:  cmake
 Requires:       openjpeg
 Requires:       numpy
 Requires:       environment-modules
@@ -40,7 +21,7 @@ AutoReqProv:    no
 
 Group:          Miscellanous
 License:        GPL
-Source0:        https://confluence.ecmwf.int/download/attachments/45757960/eccodes-%{_version}-Source.tar.gz
+Source0:        https://github.com/Kitware/CMake/releases/download/v3.15.1/cmake-3.15.1.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %define debug_package %{nil}
@@ -49,7 +30,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 anm-{%_name}
 
 %prep
-%setup -q -n -q -n eccodes-%{_version}-Source
+%setup -q -n -q -n cmake-%{_version}
 
 %build
 export CC=%{_cc} 
@@ -58,8 +39,7 @@ export F77=%{_f77}
 export FC=%{_fc}
 export LDFLAGS=%{_ldflags}
 
-mkdir build && cd build
-cmake  ../ -DCMAKE_INSTALL_PREFIX=%{_install_path}
+./configure --prefix=%{_install_path}
 make %{?_smp_mflags}
 
 %install
