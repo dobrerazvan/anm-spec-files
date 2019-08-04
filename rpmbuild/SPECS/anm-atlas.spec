@@ -4,19 +4,19 @@
 %define _compiler_version 6.5.0
 
 %if "%{_compiler}" == "gnu"
-	%define _compiler_desc gcc-%{_compiler_version}
-	%define _cc "gcc -O3 -march=skylake-avx512" 
-	%define _cxx "c++ -O3 -march=skylake-avx512"
-	%define _f77 "gfortran -O3 -march=skylake-avx512"
-	%define _fc "gfortran -O3 -march=skylake-avx512"
+    %define _compiler_desc gcc-%{_compiler_version}
+    %define _cc "gcc -O3 -march=skylake-avx512" 
+    %define _cxx "c++ -O3 -march=skylake-avx512"
+    %define _f77 "gfortran -O3 -march=skylake-avx512"
+    %define _fc "gfortran -O3 -march=skylake-avx512"
 %endif
 
 %if "%{_compiler}" == "intel"
-	%define _compiler_desc intel-2013
-	%define _cc icc
-	%define _cxx icpc
-	%define _f77 ifort
-	%define _fc ifort
+    %define _compiler_desc intel-2013
+    %define _cc icc
+    %define _cxx icpc
+    %define _f77 ifort
+    %define _fc ifort
 %endif
 
 Name:           anm-atlas-%_version-%_compiler_desc
@@ -49,7 +49,7 @@ export FC=%{_fc}
 
 rm -rf build
 mkdir build && cd build
-../c    onfigure --prefix=%{_install_path} \
+../configure --prefix=%{_install_path} \
     --shared \
     --with-netlib-lapack-tarfile=../lapack-3.8.0.tar.gz \ 
     -b 64 -Fa alg -fPIC
