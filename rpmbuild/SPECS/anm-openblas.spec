@@ -35,6 +35,7 @@ Patch2:         openblas-noexecstack.patch
 # PATCH-FIX-UPSTREADM fix-arm64-cpuid-return.patch
 Patch3:         fix-arm64-cpuid-return.patch
 
+%define debug_package %{nil}
 %define _install_path /opt/tools/libraries/%{_name}/%{_version}-%{_compiler_desc}
 %define _module_path /etc/modulefiles/libraries/%{_name}-%{_version}-%{_compiler_desc}
 
