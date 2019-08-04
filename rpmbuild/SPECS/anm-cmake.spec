@@ -33,11 +33,6 @@ anm-{%_name}
 %setup -q -n -q -n cmake-%{_version}
 
 %build
-export CC=%{_cc} 
-export CXX=${_cxx} 
-export F77=%{_f77} 
-export FC=%{_fc}
-export LDFLAGS=%{_ldflags}
 
 ./configure --prefix=%{_install_path}
 make %{?_smp_mflags}
