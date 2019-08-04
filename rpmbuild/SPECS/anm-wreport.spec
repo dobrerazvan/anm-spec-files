@@ -31,6 +31,7 @@ Summary:        anm-%{_name}
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  libtool
+BuildRequires:  python34
 Requires:       environment-modules
 AutoReqProv:    no
 
