@@ -31,8 +31,8 @@ Summary:        anm-%{_name}
 BuildRequires:  openjpeg-devel
 BuildRequires:  python-devel
 BuildRequires:  numpy
-BuildRequires:  cmake
 Requires:       openjpeg
+BuildRequires:  anm-cmake
 Requires:       numpy
 Requires:       environment-modules
 AutoReqProv:    no
