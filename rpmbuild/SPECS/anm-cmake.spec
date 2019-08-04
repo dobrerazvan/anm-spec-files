@@ -34,7 +34,7 @@ anm-{%_name}
 
 %build
 
-./configure --prefix=%{_install_path}
+./configure --prefix=%{_install_path} --parallel=5
 make %{?_smp_mflags}
 
 %install
