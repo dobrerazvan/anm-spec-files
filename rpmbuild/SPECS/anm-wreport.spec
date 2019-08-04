@@ -55,6 +55,8 @@ export F77=%{_f77}
 export FC=%{_fc}
 export LDFLAGS=%{_ldflags}
 
+sed -i "s|/usr/bin/python3|/usr/bin/python3.4|g" tables/check_btable
+
 autoreconf -if
 ./configure --prefix=%{_install_path} \
     --with-pic \
