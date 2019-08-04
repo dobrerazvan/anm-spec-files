@@ -39,7 +39,7 @@
 %define _module_path /etc/modulefiles/libraries/hdf5-%{_version}-%{_compiler_desc}
 Name:           anm-hdf5
 Version:        %_version
-Release:        %_compiler_version.1%{?dist}
+Release:        %_compiler_version.2%{?dist}
 Summary:        anm-hdf5
 BuildRequires:  zlib-devel
 AutoReqProv:    no
@@ -90,10 +90,10 @@ prepend-path LD_LIBRARY_PATH    %{_install_path}/lib
 prepend-path INCLUDE            %{_install_path}/include
 prepend-path MANPATH            %{_install_path}/share/man
 
-setenv  %{_name}_DIR    %{install_path}
-setenv  %{_name}_LIB    %{install_path}/lib
-setenv  %{_name}_BIN    %{install_path}/bin
-setenv  %{_name}_INC    %{install_path}/include
+setenv  %{_name}_DIR    %{_install_path}
+setenv  %{_name}_LIB    %{_install_path}/lib
+setenv  %{_name}_BIN    %{_install_path}/bin
+setenv  %{_name}_INC    %{_install_path}/include
 
 EOF
 
