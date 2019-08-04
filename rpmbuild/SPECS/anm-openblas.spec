@@ -48,11 +48,23 @@ anm-%{_name}
 %patch3 -p1
 
 %build
-make TARGET=SKYLAKEX USE_THREAD=0 DYNAMIC_ARCH=1
+make USE_THREAD=1 DYNAMIC_ARCH=1 PREFIX=%{buildroot}%{_install_path}
 
 %install
-rm -rf $RPM_BUILD_ROOT
-make  PREFIX=%{buildroot}%{_install_path}
+make  PREFIX=%{buildroot}%{_install_path} install
+
+# Delete info about host cpu
+%ifarch %ix86 x86_64
+sed -i '/#define OPENBLAS_NEEDBUNDERSCORE/,/#define OPENBLAS_VERSION/{//!d}' %{buildroot}%{_install_path}/include/openblas_config.h
+%endif
+
+# Remove buildroot
+sed -i 's|%{buildroot}||g' %{buildroot}%{_install_path}/lib/cmake/openblas/OpenBLASConfig.cmake
+sed -i 's|%{buildroot}||g' %{buildroot}%{_install_path}/lib/pkgconfig/openblas.pc
+
+# Remove static lib
+rm -f %{buildroot}%{_install_path}/lib/*a
+
 
 install -d -m 755 $RPM_BUILD_ROOT/etc/modulefiles/libraries/
 cat > $RPM_BUILD_ROOT%{_module_path} <<EOF
