@@ -37,7 +37,7 @@ AutoReqProv:    no
 
 Group:          Miscellanous
 License:        GPL
-Source0:        https://code.mpimet.mpg.de/attachments/20124/cdo-%{_version}.tar.gz
+Source0:        https://code.mpimet.mpg.de/attachments/download/20124/cdo-%{_version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %define debug_package %{nil}
