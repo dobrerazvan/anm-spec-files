@@ -1,5 +1,5 @@
-%define _name atlas
-%define _version 3.10.3
+%define _name openblas
+%define _version 0.3.5
 %define _compiler gnu
 %define _compiler_version 6.5.0
 
@@ -19,58 +19,51 @@
     %define _fc ifort
 %endif
 
-Name:           anm-atlas-%_version-%_compiler_desc
+Name:           anm-%{_name}-%_version-%_compiler_desc
 Version:        %{_version}
 Release:        %{_compiler_version}.1%{?dist}
-Summary:        anm-atlas
+Summary:        anm-%{_name}
 
 
 Group:          Miscellanous
 License:        GPL
-Source0:        https://netcologne.dl.sourceforge.net/project/math-atlas/Stable/%{_version}/atlas%{_version}.tar.bz2
-Source1:        http://www.netlib.org/lapack/lapack-3.8.0.tar.gz
+Source0:        https://github.com/xianyi/OpenBLAS/archive/v%{version}.tar.gz#/%{_name}-%{_version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Patch1:         openblas-libs.patch
+# PATCH-FIX-UPSTREAM openblas-noexecstack.patch
+Patch2:         openblas-noexecstack.patch
+# PATCH-FIX-UPSTREADM fix-arm64-cpuid-return.patch
+Patch3:         fix-arm64-cpuid-return.patch
 
-%define _install_path /opt/tools/libraries/atlas/%{_version}-%{_compiler_desc}
-%define _module_path /etc/modulefiles/libraries/atlas-%{_version}-%{_compiler_desc}
+%define _install_path /opt/tools/libraries/%{_name}/%{_version}-%{_compiler_desc}
+%define _module_path /etc/modulefiles/libraries/%{_name}-%{_version}-%{_compiler_desc}
 
 %description
-anm-openmpi
+anm-%{_name}
 
 %prep
-%setup -q -n ATLAS
-ls ../../
-cp ../../SOURCES/lapack-3.8.0.tar.gz .
+%setup -q -n OpenBLAS-%{_version}
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
-export CC=%{_cc} 
-export CXX=${_cxx} 
-export F77=%{_f77} 
-export FC=%{_fc}
-
-rm -rf build
-mkdir build && cd build
-GCC_PATH=$(which gcc)
-GFORTRAN_PATH=$(which gfortran)
-../configure --prefix=%{_install_path} \
-    --shared -b 64 -Fa alg -fPIC \
-    --cc=$GCC_PATH
-    --with-netlib-lapack-tarfile=../lapack-3.8.0.tar.gz 
-
-make clean
-make %{?_smp_mflags}
+make TARGET=SKYLAKEX USE_THREAD=0 DYNAMIC_ARCH=1
 
 %install
 rm -rf $RPM_BUILD_ROOT
-cd build
-make DESTDIR=%{buildroot}%{_install_path} install
+make  PREFIX=%{buildroot}%{_install_path}
 
 install -d -m 755 $RPM_BUILD_ROOT/etc/modulefiles/libraries/
 cat > $RPM_BUILD_ROOT%{_module_path} <<EOF
 #%Module1.0
 prepend-path PATH               %{_install_path}/bin
 prepend-path LD_LIBRARY_PATH    %{_install_path}/lib
-prepend-path C_INCLUDE_PATH     %{_install_path}/include
+prepend-path INCLUDE            %{_install_path}/include
+
+setenv          %{_name}_DIR        %{_install_path}
+setenv          %{_name}_LIB        %{_install_path}/lib
+setenv          %{_name}_INC        %{_install_path}/include
 
 EOF
 
