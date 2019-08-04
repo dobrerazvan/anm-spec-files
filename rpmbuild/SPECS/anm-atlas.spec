@@ -50,9 +50,9 @@ export FC=%{_fc}
 rm -rf build
 mkdir build && cd build
 ../configure --prefix=%{_install_path} \
-    --shared \
-    --with-netlib-lapack-tarfile=../lapack-3.8.0.tar.gz \ 
-    -b 64 -Fa alg -fPIC
+    --shared -b 64 -Fa alg -fPIC \
+    --with-netlib-lapack-tarfile=../lapack-3.8.0.tar.gz 
+
 make clean
 make %{?_smp_mflags}
 
