@@ -21,7 +21,7 @@
 
 Name:           anm-netcdf-f
 Version:       	%{_version}
-Release:        %{_compiler_verion}.1%{?dist}
+Release:        %{_compiler_version}.1%{?dist}
 Summary:        anm-netcdf-f
 BuildRequires:  zlib-devel >= 1.2.5
 BuildRequires:  libcurl-devel
