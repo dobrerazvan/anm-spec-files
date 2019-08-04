@@ -35,7 +35,7 @@
 
 Name:           anm-netcdf
 Version:        %{_version}
-Release:        %{_compiler_version}.1%{?dist}
+Release:        %{_compiler_version}.2%{?dist}
 Summary:        anm-netcdf-c
 BuildRequires:  curl-devel
 BuildRequires:  zlib-devel >= 1.2.5
@@ -98,6 +98,7 @@ setenv          %{_name}_DIR        %{_install_path}
 setenv          %{_name}_LIB        %{_install_path}/lib
 setenv          %{_name}_BIN        %{_install_path}/bin
 setenv          %{_name}_INC        %{_install_path}/include
+EOF
 
 %clean
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
