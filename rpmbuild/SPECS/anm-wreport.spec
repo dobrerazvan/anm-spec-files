@@ -1,5 +1,5 @@
 %define _name wreport
-%define _version 3.18-1
+%define _version 3.18
 %define _compiler gnu
 %define _compiler_version 6.5.0
 
@@ -37,7 +37,7 @@ AutoReqProv:    no
 
 Group:          Miscellanous
 License:        GPL
-Source0:        https://github.com/ARPA-SIMC/wreport/archive/v%{_version}.tar.gz
+Source0:        https://github.com/ARPA-SIMC/wreport/archive/v%{_version}-1.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %define debug_package %{nil}
@@ -46,7 +46,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 anm-%{_name}
 
 %prep
-%setup -q -n %{_name}-%{_version}
+%setup -q -n %{_name}-%{_version}-1
 
 %build
 export CC=%{_cc} 
