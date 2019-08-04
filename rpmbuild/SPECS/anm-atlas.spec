@@ -50,8 +50,9 @@ export FC=%{_fc}
 rm -rf build
 mkdir build && cd build
 GCC_PATH=$(which gcc)
+GFORTRAN_PATH=$(which gfortran)
 ../configure --prefix=%{_install_path} \
-    --shared -b 64 -Fa alg -fPIC -C acg $GCC_PATH \
+    --shared -b 64 -Fa alg -fPIC -C acg $GCC_PATH -C if $GFORTRAN_PATH \
     --with-netlib-lapack-tarfile=../lapack-3.8.0.tar.gz 
 
 make clean
