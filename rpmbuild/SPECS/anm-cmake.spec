@@ -41,7 +41,7 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=%{buildroot}
 
-install -d -m 755 $RPM_BUILD_ROOT/etc/modulefiles/libraries/
+install -d -m 755 $RPM_BUILD_ROOT/etc/modulefiles/utilities/
 cat > $RPM_BUILD_ROOT%{_module_path} <<EOF
 #%Module1.0
 prepend-path PATH               %{_install_path}/bin
