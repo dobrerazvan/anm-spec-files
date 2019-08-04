@@ -51,7 +51,7 @@ rm -rf build
 mkdir build && cd build
 GCC_PATH=$(which gcc)
 ../configure --prefix=%{_install_path} \
-    --shared -b 64 -Fa alg -fPIC -Fa alg -O3 -Fa alg -march=skylake-avx512  -C acg $GCC_PATH \ 
+    --shared -b 64 -Fa alg -fPIC -Fa alg -O3 -Fa alg -march=skylake-avx512  -C acg $GCC_PATH \
     --with-netlib-lapack-tarfile=../lapack-3.8.0.tar.gz 
 
 make clean
