@@ -29,14 +29,17 @@ Release:        %{_compiler_version}.1%{?dist}
 Version:        %{_version}
 Summary:        anm-%{_name}
 BuildRequires:  openjpeg-devel
+BuildRequires:  python-devel
+BuildRequires:  numpy
 Requires:       openjpeg
+Requires:       numpy
 Requires:       environment-modules
 AutoReqProv:    no
 
 
 Group:          Miscellanous
 License:        GPL
-Source0:        https://confluence.ecmwf.int/download/attachments/3473437/grib_api-%{_version}-Source.tar.gz?api=v2
+Source0:        https://confluence.ecmwf.int/download/attachments/3473437/grib_api-%{_version}-Source.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %define debug_package %{nil}
