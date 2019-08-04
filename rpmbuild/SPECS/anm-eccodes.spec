@@ -64,6 +64,7 @@ make %{?_smp_mflags}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+cd build
 make install DESTDIR=%{buildroot}
 
 install -d -m 755 $RPM_BUILD_ROOT/etc/modulefiles/libraries/
