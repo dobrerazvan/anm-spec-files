@@ -57,11 +57,8 @@ export F77=%{_f77}
 export FC=%{_fc}
 export LDFLAGS=%{_ldflags}
 
-./configure --prefix=%{_install_path} \
-    --enable-python \
-    --with-pic \
-    --enable-shared \
-    --enable-static
+mkdir build && cd build
+cmake  ../ -DCMAKE_INSTALL_PREFIX=%{_install_path}
 make %{?_smp_mflags}
 
 %install
