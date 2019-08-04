@@ -1,4 +1,4 @@
-%define _name netcdf-f
+%define _name netcdf_f
 %define _version 4.4.5
 %define _compiler gnu
 %define _compiler_version 6.5.0
@@ -21,7 +21,7 @@
 
 Name:           anm-netcdf-f
 Version:       	%{_version}
-Release:        %{_compiler_version}.1%{?dist}
+Release:        %{_compiler_version}.2%{?dist}
 Summary:        anm-netcdf-f
 BuildRequires:  zlib-devel >= 1.2.5
 BuildRequires:  libcurl-devel
