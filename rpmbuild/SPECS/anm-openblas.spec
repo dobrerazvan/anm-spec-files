@@ -48,7 +48,7 @@ anm-%{_name}
 %patch3 -p1
 
 %build
-make USE_THREAD=1 DYNAMIC_ARCH=1 PREFIX=%{buildroot}%{_install_path}
+make TARGET=HASWELL USE_THREAD=1 PREFIX=%{buildroot}%{_install_path}
 
 %install
 make  PREFIX=%{buildroot}%{_install_path} install
