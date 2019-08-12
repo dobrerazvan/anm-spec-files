@@ -59,7 +59,7 @@ export FC=%{_fc}
 export LDFLAGS=%{_ldflags}
 
 mkdir build && cd build
-cmake  ../ -DCMAKE_INSTALL_PREFIX=%{_install_path} -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DNETCDF_PATH=$netcdf_DIR
+cmake  ../ -DCMAKE_INSTALL_PREFIX=%{_install_path} -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=BOTH -DNETCDF_PATH=$netcdf_DIR
 make %{?_smp_mflags}
 
 %install
