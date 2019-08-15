@@ -61,7 +61,7 @@ export CXXFLAGS=-I${openmpi_INC}
 
 ./configure --prefix=%{_install_path} \
     --with-netcdf=$netcdf_DIR \
-    --with-eccodes=$grib_api_DIR \
+    --with-eccodes=$eccodes_DIR \
     --with-hdf5=$hdf5_DIR \
     --enable-shared \
     --enable-static
