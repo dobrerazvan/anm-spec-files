@@ -33,6 +33,8 @@ BuildRequires:  automake
 BuildRequires:  libtool
 Requires:       environment-modules
 Requires:       anm-grib_api >= 1.16
+Requires:       anm-hdf5
+Requires:       anm-openmpi
 AutoReqProv:    no
 
 
@@ -55,6 +57,7 @@ export CXX=${_cxx}
 export F77=%{_f77} 
 export FC=%{_fc}
 export LDFLAGS=%{_ldflags}
+export CXXFLAGS=-I${openmpi_INC}
 
 ./configure --prefix=%{_install_path} \
     --with-netcdf=$netcdf_DIR \
