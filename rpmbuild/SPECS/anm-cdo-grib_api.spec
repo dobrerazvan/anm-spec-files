@@ -21,8 +21,8 @@
     %define _ldflags "-lirc"
 %endif
 
-%define _install_path /opt/tools/libraries/%{_name}/%{_version}-%{_compiler_desc}
-%define _module_path /etc/modulefiles/libraries/%{_name}-%{_version}-%{_compiler_desc}
+%define _install_path /opt/tools/libraries/%{_name}/%{_version}-grib_api-%{_compiler_desc}
+%define _module_path /etc/modulefiles/libraries/%{_name}-%{_version}-grib_api-%{_compiler_desc}
 
 Name:           anm-%{_name}-grib_api
 Release:        %{_compiler_version}.1%{?dist}
