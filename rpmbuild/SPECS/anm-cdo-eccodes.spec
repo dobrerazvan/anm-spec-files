@@ -24,7 +24,7 @@
 %define _install_path /opt/tools/libraries/%{_name}/%{_version}-%{_compiler_desc}
 %define _module_path /etc/modulefiles/libraries/%{_name}-%{_version}-%{_compiler_desc}
 
-Name:           anm-%{_name}
+Name:           anm-%{_name}-eccodes
 Release:        %{_compiler_version}.1%{?dist}
 Version:        %{_version}
 Summary:        anm-%{_name}
@@ -32,6 +32,7 @@ BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  libtool
 Requires:       environment-modules
+Requires:       anm-eccodes
 AutoReqProv:    no
 
 
@@ -57,7 +58,8 @@ export LDFLAGS=%{_ldflags}
 
 ./configure --prefix=%{_install_path} \
     --with-netcdf=$netcdf_DIR \
-    --with-grib_api=$grib_api_DIR \
+    --with-eccodes=$grib_api_DIR \
+    --with-hdf5=$hdf5_DIR \
     --enable-shared \
     --enable-static
 make %{?_smp_mflags}
