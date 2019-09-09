@@ -73,12 +73,6 @@ anm-netcdf-full
 export CPPFLAGS="-I$hdf5_INC"
 export LDFLAGS="-L$hdf5_LIB"
 export CFLAGS="-L$hdf5_LIB -I$hdf5_INC"
-export CC=mpicc
-
-export CC=%{_cc} 
-export CXX=${_cxx} 
-export F77=%{_f77} 
-export FC=%{_fc}
 
 ./configure --prefix=%{_install_path} \
     --enable-shared \
