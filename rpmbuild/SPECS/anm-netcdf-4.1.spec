@@ -4,7 +4,7 @@
 %if %{?_user_version:1}%{!?_user_version:0}
 %define _version %{_user_version}
 %else
-%define _version 3.1.1
+%define _version 4.6.3
 %endif
 
 %if %{?_user_compiler_version:1}%{!?_user_compiler_version:0}
