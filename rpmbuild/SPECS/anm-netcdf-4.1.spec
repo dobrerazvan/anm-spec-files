@@ -82,7 +82,8 @@ export FC=%{_fc}
 
 ./configure --prefix=%{_install_path} \
     --enable-shared \
-    --enable-netcdf-4 \
+	--enable-fortran \
+	--enable-parallel \
     --enable-dap \
     --with-pic \
     --disable-doxygen \
