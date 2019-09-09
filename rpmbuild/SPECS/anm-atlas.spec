@@ -1,7 +1,17 @@
 %define _name atlas
-%define _version 3.10.3
 %define _compiler gnu
+
+%if %{?_user_version:1}%{!?_user_version:0}
+%define _version %{_user_version}
+%else
+%define _version 3.10.3
+%endif
+
+%if %{?_user_compiler_version:1}%{!?_user_compiler_version:0}
+%define _compiler_version %{_user_compiler_version}
+%else
 %define _compiler_version 6.5.0
+%endif
 
 %if "%{_compiler}" == "gnu"
     %define _compiler_desc gcc-%{_compiler_version}
