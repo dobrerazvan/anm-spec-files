@@ -8,7 +8,7 @@
 %endif
 
 %if %{?_user_compiler_version:1}%{!?_user_compiler_version:0}
-%define _version %{_user_compiler_version}
+%define _compiler_version %{_user_compiler_version}
 %else
 %define _compiler_version 6.5.0
 %endif
