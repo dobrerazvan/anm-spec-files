@@ -70,14 +70,12 @@ anm-netcdf-full
 
 %build
 
-export CPPFLAGS="-I$hdf5_INC"
 export LDFLAGS="-L$hdf5_LIB -lhdf5 -lhdf5_hl"
-export CFLAGS="-I$hdf5_INC"
+export CFLAGS="-I$hdf5_INC -I$openmpi_INC"
 
 ./configure --prefix=%{_install_path} \
     --enable-shared \
-	--enable-fortran \
-	--enable-parallel \
+    --enable-netcdf4 \
     --enable-dap \
     --with-pic \
     --disable-doxygen \
