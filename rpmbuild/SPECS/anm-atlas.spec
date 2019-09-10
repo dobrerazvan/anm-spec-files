@@ -64,7 +64,7 @@ GCC_PATH=$(which gcc)
 GFORTRAN_PATH=$(which gfortran)
 ../configure --prefix=%{_install_path} \
     --shared -b 64 -Fa alg -fPIC \
-    --cc=$GCC_PATH
+    --cc=$GCC_PATH \
     --with-netlib-lapack-tarfile=../lapack-3.8.0.tar.gz 
 
 make clean
