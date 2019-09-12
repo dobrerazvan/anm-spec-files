@@ -29,7 +29,7 @@
     %define _fc ifort
 %endif
 
-Name:           anm-%{_name}-%_version-%_compiler_desc
+Name:           anm-%{_name}
 Version:        %{_version}
 Release:        %{_compiler_version}.1%{?dist}
 Summary:        anm-%{_name}
