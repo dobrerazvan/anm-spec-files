@@ -29,9 +29,9 @@
     %define _fc ifort
 %endif
 
-Name:           anm-atlas-%_version-%_compiler_desc
-Version:        %{_version}
+Name:           anm-atlas
 Release:        %{_compiler_version}.1%{?dist}
+Version:        %{_version}
 Summary:        anm-atlas
 
 
@@ -43,6 +43,8 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %define _install_path /opt/tools/libraries/atlas/%{_version}-%{_compiler_desc}
 %define _module_path /etc/modulefiles/libraries/atlas-%{_version}-%{_compiler_desc}
+
+%define debug_package %{nil}
 
 %description
 anm-openmpi
@@ -68,7 +70,7 @@ GFORTRAN_PATH=$(which gfortran)
     --with-netlib-lapack-tarfile=../lapack-3.8.0.tar.gz 
 
 make clean
-make %{?_smp_mflags}
+make
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -81,6 +83,11 @@ cat > $RPM_BUILD_ROOT%{_module_path} <<EOF
 prepend-path PATH               %{_install_path}/bin
 prepend-path LD_LIBRARY_PATH    %{_install_path}/lib
 prepend-path C_INCLUDE_PATH     %{_install_path}/include
+
+setenv %{_name}_DIR             %{_install_path}
+setenv %{_name}_INC             %{_install_path}/include
+setenv %{_name}_LIB             %{_install_path}/lib
+setenv %{_name}_BIN             %{_install_path}/bin
 
 EOF
 
