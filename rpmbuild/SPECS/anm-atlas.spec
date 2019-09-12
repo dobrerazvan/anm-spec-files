@@ -47,7 +47,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 %define debug_package %{nil}
 
 %description
-anm-openmpi
+anm-atlas
 
 %prep
 %setup -q -n ATLAS
