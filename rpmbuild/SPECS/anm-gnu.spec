@@ -62,7 +62,7 @@ mkdir build && cd build
     --enable-checking=release \
     --enable-languages=c,c++,fortran \
     --disable-multilib \
-    --disable-static
+    --enable-static
 make %{?_smp_mflags}
 
 %install
