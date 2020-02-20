@@ -41,6 +41,7 @@ AutoReqProv:    no
 Group:          Miscellanous
 License:        GPL
 Source0:        https://confluence.ecmwf.int/download/attachments/45757960/eccodes-%{_version}-Source.tar.gz
+Source1:        eccodes_definitions_alaro.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %define debug_package %{nil}
@@ -50,6 +51,7 @@ anm-{%_name}
 
 %prep
 %setup -q -n -q -n eccodes-%{_version}-Source
+%setup -T -a 1
 
 %build
 export CC=%{_cc} 
