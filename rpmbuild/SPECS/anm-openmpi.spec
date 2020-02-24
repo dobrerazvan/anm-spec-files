@@ -51,6 +51,12 @@ BuildRequires:  hwloc-devel
 BuildRequires:  rdma-core-devel
 Requires:       libxml2
 Requires:       environment-modules
+Requires:       librdmacm
+Requires:       libibverbs
+Requires:       librdmacm
+Requires:       libibverbs
+Requires:       opensm-libs
+Requires:       compat-opensm-libs
 AutoReqProv:    no
 
 

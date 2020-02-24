@@ -85,7 +85,7 @@ setenv %{_name}_DIR             %{_install_path}
 setenv %{_name}_INC             %{_install_path}/include
 setenv %{_name}_LIB             %{_install_path}/lib
 setenv %{_name}_BIN             %{_install_path}/bin
-setenv ECCODES_ALARO		%{_install_path}/eccodes_definitions_alaro
+setenv ECCODES_ALARO            %{_install_path}/eccodes_definitions_alaro
 EOF
 
 %clean
