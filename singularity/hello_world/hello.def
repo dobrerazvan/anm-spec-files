@@ -1,0 +1,27 @@
+Bootstrap: library
+From: centos:latest
+
+%environment
+PATH=/opt/tools/libraries/openmpi/1.8.8-gcc-4.8.5/bin:$PATH
+LD_LIBRARY_PATH=/opt/tools/libraries/openmpi/1.8.8-gcc-4.8.5/lib:$LD_LIBRARY_PATH
+export PATH LD_LIBRARY_PATH
+
+%files
+    hello_mpi/hello /bin
+
+%post
+cat > /etc/yum.repos.d/anm.repo <<EOF
+[anm-repo]
+name=anm-repo
+baseurl=http://192.168.4.55/install/custom/anm-repo
+gpgcheck=0
+EOF
+
+yum makecache fast
+yum groupinstall "Development Tools" -y
+
+#install openmpi from local repository
+yum install anm-openmpi-1.8.8-4.8.5.1.el7.x86_64 librdmacm libibverbs opensm-libs compat-opensm-libs -y
+
+yum clean all
+
