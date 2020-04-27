@@ -22,7 +22,7 @@
 
 Name:           anm-gcc
 Version:        %{_version}
-Release:        %{_compiler_version}.2%{?dist}
+Release:        %{_compiler_version}.3%{?dist}
 Summary:        anm-gcc
 BuildRequires:  gmp-devel >= 4.2
 BuildRequires:  mpfr-devel
@@ -62,7 +62,8 @@ mkdir build && cd build
     --enable-checking=release \
     --enable-languages=c,c++,fortran \
     --disable-multilib \
-    --enable-static
+    --enable-static \
+    --target skylake-avx512-redhat-linux
 make %{?_smp_mflags}
 
 %install
